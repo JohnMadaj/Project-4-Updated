@@ -2,6 +2,7 @@
 #import "includes/constants.h"
 #import <string>
 #import <fstream>
+	using std::ofstream;
 #import <iostream>
 
 /**
@@ -18,12 +19,13 @@ int writeFile(std::string &filename,char *contents){//TODO
 	if (contents==NULL)
 		return INVALID_NULL_PTR_DETECTED;
 
-	iostream io;
+	ofstream of;
+	of.open(filename, std::ios::out);
+	of << contents;
 
 
 
-	char writeable_contents;
-
+	of.close();
 	return SUCCESS;
 }
 

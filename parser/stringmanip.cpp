@@ -59,7 +59,9 @@ namespace KP{
 	 */
 	int replace(const char *src, char *new_src, const char *tag, const char *tag_replacement){
 		if (src == NULL || new_src == NULL || tag == NULL || tag_replacement == NULL)
-			return INVALID_NULL_PTR_DETECTED;//TODO
+			return INVALID_NULL_PTR_DETECTED;
+
+		return SUCCESS;
 
 	}
 
