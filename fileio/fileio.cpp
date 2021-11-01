@@ -15,6 +15,15 @@
  *        SUCCESS otherwise
  */
 int writeFile(std::string &filename,char *contents){//TODO
+	if (contents==NULL)
+		return INVALID_NULL_PTR_DETECTED;
+
+	iostream io;
+
+
+
+	char writeable_contents;
+
 	return SUCCESS;
 }
 
