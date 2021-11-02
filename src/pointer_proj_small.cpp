@@ -14,14 +14,16 @@
 #include "../includes/fileio.h"
 
 using namespace std;
+using namespace KP;
 
 
 
 int main(int argc, char *argv[]) {	
 	//TODO Get commandline arguments
-	if (argc != EXPECTED_NUMBER_ARGUMENTS)
+	if (argc != EXPECTED_NUMBER_ARGUMENTS){
 		cout<<HELP_STRING1<<endl;
 		return FAIL_WRONG_NUMBER_ARGS;
+	}
 	
 		//TODO
 	string in = argv[1];
@@ -48,17 +50,20 @@ int main(int argc, char *argv[]) {
 		copy(src.begin(), src.end(), src_char);
 
 	//TODO how many tags found in file?
-	int numbTags = KP::findNumbOccurrences(src_char,  tag_char);
+	int numbTags = findNumbOccurrences(src_char,  tag_char);
 
 	//TODO how much memory to allocate?
-	int required_memory = KP::amountOfMemoryToAllocateForNewString(src.length(), numbTags,
+	int required_memory = amountOfMemoryToAllocateForNewString(src.length(), numbTags,
 			tag.length(), replacement.length());
 
 	//TODO allocate memory
 	char* modified_src_char = new char[required_memory + 1];
 	
 	//TODO replace original tag with new tags
-	int replace(src_char, modified_src_char, tag_char, replacement_char);
+//	int replace(const char *src, char *new_src, const char *tag, const char *tag_replacement){
+	int replaced = KP::replace(src_char, modified_src_char, tag_char, replacement_char);
+	if (replaced == INVALID_NULL_PTR_DETECTED)
+		return replaced;
 	int write = writeFile(out, modified_src_char);
 	if (write == INVALID_NULL_PTR_DETECTED){
 		cout<<HELP_STRING2<<endl;

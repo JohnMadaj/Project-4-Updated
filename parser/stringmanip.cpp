@@ -5,8 +5,8 @@
  *      Author: keith
  */
 
-#include "includes/constants.h"
-#include "includes/stringmanip.h"
+#include "../includes/constants.h"
+#include "../includes/stringmanip.h"
 #include <string>
 #include <algorithm>
 namespace KP{
@@ -89,5 +89,3 @@ namespace KP{
 
 	}
 }
-
-#endif /* STRINGMANIP_H_ */

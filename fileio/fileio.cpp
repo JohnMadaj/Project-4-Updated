@@ -1,9 +1,9 @@
-#import "includes/fileio.h"
-#import "includes/constants.h"
-#import <string>
-#import <fstream>
+#include "../includes/fileio.h"
+#include "../includes/constants.h"
+#include <string>
+#include <fstream>
 	using std::ofstream;
-#import <iostream>
+#include <iostream>
 
 /**
  * write data in contents to filename
