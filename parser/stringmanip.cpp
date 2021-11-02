@@ -7,6 +7,8 @@
 
 #include "includes/constants.h"
 #include "includes/stringmanip.h"
+#include <string>
+#include <algorithm>
 namespace KP{
 	/**
 	 * Calculate the exact amount of memory needed to allocate a that consists of the old string with all tags replaced by tag_replacements.
@@ -60,6 +62,9 @@ namespace KP{
 	int replace(const char *src, char *new_src, const char *tag, const char *tag_replacement){
 		if (src == NULL || new_src == NULL || tag == NULL || tag_replacement == NULL)
 			return INVALID_NULL_PTR_DETECTED;
+		int marker = 0;//TODO
+		//marker = std::string::find(tag, marker);
+
 
 		return SUCCESS;
 
@@ -73,7 +78,16 @@ namespace KP{
 	 * \return INVALID_NULL_PTR_DETECTED one or more of src, or tag is NULL
 	 *         otherwise the number of times tag occurs in src
 	 */
-	int findNumbOccurrences(const char *src,  const char *tag);
+	int findNumbOccurrences(const char *src,  const char *tag){ //TODO
+		if (src == NULL || tag == NULL)
+			return INVALID_NULL_PTR_DETECTED;
+//		return std::count(src.begin(), src.end(), tag);
+		int count = 0;
+//		for (int i = 0; i < strlen(src); i++)
+//			if (src[i]==tag) count++;
+		return count;
+
+	}
 }
 
 #endif /* STRINGMANIP_H_ */
