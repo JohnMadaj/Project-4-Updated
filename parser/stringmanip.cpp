@@ -62,9 +62,14 @@ namespace KP{
 	int replace(const char *src, char *new_src, const char *tag, const char *tag_replacement){
 		if (src == NULL || new_src == NULL || tag == NULL || tag_replacement == NULL)
 			return INVALID_NULL_PTR_DETECTED;
-		int marker = 0;//TODO
-		//marker = std::string::find(tag, marker);
+		std::string srcstr(src);
+		std::string newsrcstr(new_src);
+		size_t position;
 
+		while ((position = srcstr.find(tag)) != std::string::npos)
+			srcstr.replace(position, 1, tag_replacement);
+
+		src = srcstr.c_str();
 
 		return SUCCESS;
 
@@ -81,10 +86,13 @@ namespace KP{
 	int findNumbOccurrences(const char *src,  const char *tag){ //TODO
 		if (src == NULL || tag == NULL)
 			return INVALID_NULL_PTR_DETECTED;
-//		return std::count(src.begin(), src.end(), tag);
+		std::string srcstr(src);
 		int count = 0;
-//		for (int i = 0; i < strlen(src); i++)
-//			if (src[i]==tag) count++;
+		size_t position = srcstr.find(tag, 0);
+		while (position != std::string::npos){
+			count++;
+			position = srcstr.find(tag, position+1);
+		}
 		return count;
 
 	}
